@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' 'unsafe-eval';frame-src * https://*;">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+
+    {%- capture title -%}{{ page.title }} | {{ site.baseurl | remove: "/" }}{%- endcapture -%}
+    {%- capture fullUrl -%}{{site.github.url}}{{page.url}}{%- endcapture -%}
+    {%- capture repoUrl -%}{{site.github.repository_url}}/blob/main/docs/{{page.path}}{%- endcapture -%}
+    {%- capture ownerUrl -%}{{ site.github.owner_url }}{%- endcapture -%}
+    {%- capture ver -%}{{ site.time | date: "%s" | modulo: 1000 }}{%- endcapture -%}
+
+
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+    <!-- https://shopify.github.io/liquid/tags/variable/ -->
+
+    <title>{{ title }}</title>
+    <base href="{{ site.github.url }}/">
+    <meta name="generator" content="Jekyll v3.9.0">
+    <meta property="og:title" content="{{ page.title | downcase }}">
+    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="{{ fullUrl }}">
+    <meta property="og:url" content="{{ fullUrl }}">
+    <meta property="og:site_name" content="{{ page.title | downcase }}">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="{{ page.title | downcase }}">
+    <script type="application/ld+json">
+       {"url":"{{ fullUrl }}",
+       "@type":"WebPage",
+       "headline":"{{ page.title | downcase }}",
+       "@context":"https://schema.org"}
+    </script>
+
+    <!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style>
+
+    <link rel="mask-icon" href="assets/images/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+    <!-- Setup Google Analytics -->
+
+    <!-- You can set your favicon here -->
+    <!-- link rel="shortcut icon" type="image/x-icon" href="/pub/favicon.ico" -->
+
+    <!-- end custom head snippets -->
+
+    <link rel="stylesheet" href="assets/app.css">
+    <script defer="" src="assets/app.js"></script>
+</head>
+
+<body>
+    <div class="log-cap">
+        <div class="row">
+            <div class="col-1 q-pl-xs">version</div>
+            <div class="">:</div>
+            <div class="q-pl-xs">v.beta.00.1.{{ ver }}</div>
+        </div>
+        <div class="row">
+            <div class="col-1 q-pl-xs">type</div>
+            <div class="">:</div>
+            <div class="q-pl-xs">Community-Based Participatory Research</div>
+        </div>
+        <div class="row">
+            <div class="col-1 q-pl-xs">compiled</div>
+            <div class="">:</div>
+            <div class="q-pl-xs">{%- include vars.html compiled="1" -%}</div>
+        </div>
+        <div class="row">
+            <div class="col-1 q-pl-xs">status</div>
+            <div class="">:</div>
+            <div class="q-pl-xs">indexing</div>
+        </div>
+    </div>
+
+    <div class="header-cap">
+        <div class="row nowrap">
+            <div class="col-2 row branch-l">
+                <div class="hl">
+                    <div>❤</div>
+                </div>
+            </div>
+            <div class="col-6 q-px-sm ua-c-txt">Батько наш — Бандера, Україна — мати!</div>
+            <div class="col-1 branch-r">
+                <div class="hl">
+                    <div>🖤</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-lg px-3 my-5 markdown-body">
+
+        {% include github-corner.html url=repoUrl %}
+        {{ content }}
+        <div class="hr--i"></div>
+    </div>
+
+    {% include owner.html %}
+
+</body>
+
+</html>
